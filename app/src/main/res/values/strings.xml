@@ -2,4 +2,13 @@
     <string name="app_name">My Application</string>
     <string name="caffe_late">Caffe Late</string>
     <string name="cafe_late_recipe">How to make Cafe Late:\n 1-Heat milk in a saucepan set over medium-low heat.\n Whisk briskly with a wire whisk to create foam.\n 2-Brew espresso and pour into four cups.\nPour in milk, holding back the foam with a spoon. Spoon foam over the top</string>
+    <string name="cafe_latte">Cafe Latte</string>
+    <string name="scrambled_eggs_recipe">1-BEAT eggs, milk, salt and pepper in medium bowl until blended.\n 2-HEAT butter in large nonstick skillet over medium heat until hot. POUR in egg mixture. As eggs begin to set, gently PULL the eggs across the pan with a spatula, forming large soft curds.\n 3-CONTINUE cooking—pulling, lifting and folding eggs—until thickened and no visible liquid egg remains. Do not stir constantly. REMOVE from heat. SERVE immediately.</string>
+    <string name="scrambled_eggs">Scrambled Eggs</string>
+    <string name="garden_salad">Garden Salad</string>
+    <string name="garden_salad_recipe">1-Chop lettuce into small, bite sized pieces. Transfer to a colander or salad spinner, rinse and dry.\n2-Rinse carrots, cucumber, green onion and cherry tomatoes. Pat dry.\n3-Cut carrots and cucumber into thin half moons and chop green onion.\n4-Dice red onion into very small pieces and halve tomatoes.\n5-Place lettuce, vegetables and tomatoes in a large bowl.\n6-Measure dressing ingredients into a small bowl or glass jar and whisk well.then apply your favorite dressing.
+</string>
+
+
+
 </resources>

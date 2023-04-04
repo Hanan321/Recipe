@@ -4,49 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/caffe_late_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:fontFamily="cursive"
-        android:text="@string/caffe_late"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="94dp"
+        android:onClick="onDisplayCafeLate"
+        android:text="@string/cafe_latte"
+        app:layout_constraintStart_toStartOf="@+id/scrambled_eggs_b"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/scrambled_eggs_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/cafe_late_recipe"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="25dp"
+        android:onClick="onDisplayScrambledEggs"
+        android:text="@string/scrambled_eggs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:background="@drawable/border"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/caffe_late_b" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cafe_latte" />
-
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:onClick="onDisplayGardenSalad"
+        android:text="@string/garden_salad"
+        app:layout_constraintStart_toStartOf="@+id/scrambled_eggs_b"
+        app:layout_constraintTop_toBottomOf="@+id/scrambled_eggs_b" />
 </android.support.constraint.ConstraintLayout>
