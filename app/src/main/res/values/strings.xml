@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="caffe_late">Caffe Late</string>
+    <string name="cafe_late_recipe">How to make Cafe Late:\n 1-Heat milk in a saucepan set over medium-low heat.\n Whisk briskly with a wire whisk to create foam.\n 2-Brew espresso and pour into four cups.\nPour in milk, holding back the foam with a spoon. Spoon foam over the top</string>
+</resources>
