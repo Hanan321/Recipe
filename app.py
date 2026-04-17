@@ -139,26 +139,24 @@ def render_recipe(recipe: Recipe) -> None:
 
     st.markdown(
         f"""
-        <article class="recipe-card">
-            <h2>{escape(recipe.dish_name)}</h2>
-            <div class="recipe-country">{escape(recipe.country)}</div>
-            <p class="recipe-description">{escape(recipe.plating_description)}</p>
-
-            <section class="recipe-section">
-                <h3>Ingredients</h3>
-                <ul>
-                    {ingredients_html}
-                </ul>
-            </section>
-
-            <section class="recipe-section">
-                <h3>Recipe Steps</h3>
-                <ol>
-                    {steps_html}
-                </ol>
-            </section>
-        </article>
-        """,
+<div class="recipe-card">
+<h2>{escape(recipe.dish_name)}</h2>
+<div class="recipe-country">{escape(recipe.country)}</div>
+<p class="recipe-description">{escape(recipe.plating_description)}</p>
+<div class="recipe-section">
+<h3>Ingredients</h3>
+<ul>
+{ingredients_html}
+</ul>
+</div>
+<div class="recipe-section">
+<h3>Recipe Steps</h3>
+<ol>
+{steps_html}
+</ol>
+</div>
+</div>
+""",
         unsafe_allow_html=True,
     )
 
