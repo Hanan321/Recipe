@@ -9,6 +9,7 @@ from openai import OpenAI
 
 
 DEFAULT_MODEL = "gpt-5.4"
+DEFAULT_SERVINGS = 4
 
 ARAB_COUNTRIES = [
     "Algeria",
@@ -37,14 +38,6 @@ ARAB_COUNTRIES = [
 
 NORMALIZED_COUNTRIES = {country.lower(): country for country in ARAB_COUNTRIES}
 
-RECIPE_STYLES = [
-    "Classic traditional",
-    "Beginner friendly",
-    "Weeknight friendly",
-    "Vegetarian leaning",
-    "Family gathering",
-]
-
 
 @dataclass(frozen=True)
 class Recipe:
@@ -64,27 +57,14 @@ def normalize_country(country: str) -> str | None:
     return NORMALIZED_COUNTRIES.get(country.strip().lower())
 
 
-def build_recipe_prompt(
-    country: str,
-    recipe_style: str,
-    servings: int,
-    preferences: str = "",
-) -> str:
-    """Build the same core prompt from the notebook with app-friendly options."""
-
-    preference_line = (
-        f"User preferences or notes: {preferences.strip()}"
-        if preferences.strip()
-        else "User preferences or notes: none"
-    )
+def build_recipe_prompt(country: str) -> str:
+    """Build a focused prompt for a traditional recipe."""
 
     return f"""
 You are a professional culinary AI assistant.
 
 The selected country is: {country}
-Recipe style: {recipe_style}
-Servings: about {servings}
-{preference_line}
+Servings: about {DEFAULT_SERVINGS}
 
 Choose ONE well-known traditional dish from this country and generate the answer using this exact format:
 
@@ -100,7 +80,7 @@ Ingredients:
 Recipe Steps:
 1. write 4 to 6 simple steps
 
-Keep the answer culturally appropriate, realistic, warm, and beginner-friendly.
+Keep the answer culturally appropriate, realistic, clear, and beginner-friendly.
 Do not add extra sections outside the requested format.
 """.strip()
 
@@ -108,9 +88,6 @@ Do not add extra sections outside the requested format.
 def generate_recipe(
     api_key: str,
     country: str,
-    recipe_style: str,
-    servings: int,
-    preferences: str = "",
     model: str = DEFAULT_MODEL,
 ) -> Recipe:
     """Generate and parse a traditional Arabic recipe."""
@@ -122,12 +99,7 @@ def generate_recipe(
     if not canonical_country:
         raise ValueError("Please choose one of the supported Arab countries.")
 
-    prompt = build_recipe_prompt(
-        country=canonical_country,
-        recipe_style=recipe_style,
-        servings=servings,
-        preferences=preferences,
-    )
+    prompt = build_recipe_prompt(country=canonical_country)
 
     client = OpenAI(api_key=api_key.strip())
     response = client.responses.create(model=model, input=prompt)
