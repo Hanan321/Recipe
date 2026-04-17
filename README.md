@@ -44,7 +44,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-4. Open the local Streamlit URL in your browser and enter your OpenAI API key in the sidebar.
+4. Open the local Streamlit URL in your browser. You can enter an OpenAI API key in the sidebar for the current session, but stored keys are never displayed there.
 
 You can also create a local `.env` file:
 
@@ -64,7 +64,7 @@ streamlit run app.py
 1. Push this repository to GitHub.
 2. Create a new app on Streamlit Community Cloud.
 3. Set the main file path to `app.py`.
-4. Add your `OPENAI_API_KEY` as a Streamlit secret if you do not want users to type a key each time.
+4. Add your `OPENAI_API_KEY` as a Streamlit secret if you do not want users to type a key each time. The app will use this secret without showing it in the sidebar.
 
 Example secret:
 

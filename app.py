@@ -199,7 +199,7 @@ def render_recipe(recipe: Recipe) -> None:
             st.markdown(recipe.raw_text)
 
 
-def default_api_key() -> str:
+def configured_api_key() -> str:
     try:
         return st.secrets.get("OPENAI_API_KEY", os.environ.get("OPENAI_API_KEY", ""))
     except FileNotFoundError:
@@ -209,12 +209,19 @@ def default_api_key() -> str:
 def sidebar_controls() -> tuple[str, str, int, str, str]:
     st.sidebar.header("Recipe Settings")
 
-    api_key = st.sidebar.text_input(
+    stored_api_key = configured_api_key().strip()
+    if stored_api_key:
+        st.sidebar.caption("OpenAI API key loaded from app configuration.")
+
+    typed_api_key = st.sidebar.text_input(
         "OpenAI API key",
-        value=default_api_key(),
+        value="",
+        key="openai_api_key_input_v2",
         type="password",
-        help="Your key is used only for this local session.",
+        placeholder="Optional: paste a key for this session",
+        help="Stored keys are never displayed here. Leave this blank to use the configured key.",
     )
+    api_key = typed_api_key.strip() or stored_api_key
 
     country = st.sidebar.selectbox("Country", ARAB_COUNTRIES, index=4)
     recipe_style = st.sidebar.selectbox("Recipe style", RECIPE_STYLES)
